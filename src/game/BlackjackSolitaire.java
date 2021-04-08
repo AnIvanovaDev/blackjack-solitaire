@@ -1,8 +1,7 @@
 package game;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  * The model of Blackjack Game.
@@ -36,10 +35,10 @@ public class BlackjackSolitaire {
     public void play() {
         drawTable();
         System.out.println("**************************");
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+        try (Scanner sc = new Scanner(System.in)) {
             while (freeWorkingCells > 0) {
                 Card card = deck.nextCard();
-                nextMove(br, card);
+                nextMove(sc, card);
                 drawTable();
             }
         } catch (IOException ex) {
@@ -72,15 +71,15 @@ public class BlackjackSolitaire {
         binInfo();
     }
 
-    private void nextMove(BufferedReader br, Card card) throws IOException {
+    private void nextMove(Scanner sc, Card card) throws IOException {
         System.out.printf("The next card is %s. Where do you want to place it?", card);
-        String str = br.readLine();
+        String str = sc.nextLine();
         int workingCell = stringToIntConverter(str);
         if (checkWorkingCellIndex(workingCell)) {
             putCardToWorkingCell(workingCell, card);
         } else {
             System.out.println("Please choose an empty cell.");
-            nextMove(br, card);
+            nextMove(sc, card);
         }
     }
 
