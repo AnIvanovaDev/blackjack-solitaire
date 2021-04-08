@@ -72,7 +72,7 @@ public class BlackjackSolitaire {
     }
 
     private void nextMove(Scanner sc, Card card) throws IOException {
-        System.out.printf("The next card is %s. Where do you want to place it?", card);
+        System.out.printf("The next card is %s. Where do you want to place it? ", card);
         String str = sc.nextLine();
         int workingCell = stringToIntConverter(str);
         if (checkWorkingCellIndex(workingCell)) {
