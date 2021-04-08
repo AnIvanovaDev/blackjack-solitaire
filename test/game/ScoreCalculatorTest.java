@@ -63,4 +63,29 @@ public class ScoreCalculatorTest {
         int expectedValue = 24;
         Assert.assertEquals(expectedValue,actualValue);
     }
+
+    @Test
+    public void scoreCalculationTest2() {
+        Card[] cards = new Card[] {
+                Card.of(TEN, SPADES),
+                Card.of(SEVEN, CLUBS),
+                Card.of(SEVEN, SPADES),
+                Card.of(SIX, CLUBS),
+                Card.of(JACK, CLUBS),
+                Card.of(ACE, CLUBS),
+                Card.of(NINE, CLUBS),
+                Card.of(FOUR, SPADES),
+                Card.of(TWO, SPADES),
+                Card.of(QUEEN, SPADES),
+                Card.of(KING, HEARTS),
+                Card.of(KING, SPADES),
+                Card.of(FOUR, CLUBS),
+                Card.of(FIVE, SPADES),
+                Card.of(FIVE, DIAMONDS),
+                Card.of(NINE, HEARTS),
+        };
+        int actualValue = ScoreCalculator.calculate(cards);
+        int expectedValue = 26;
+        Assert.assertEquals(expectedValue,actualValue);
+    }
 }
